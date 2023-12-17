@@ -12,13 +12,67 @@
     <link rel="icon" type="image/x-icon" href="./fav_icon/ce.ico">
     <!-- <script src="https://d3js.org/d3.v5.min.js"></script  t>
     <link rel="stylesheet" href="./dist/reset.css" />  -->
-    <!-- <title>Project Name</title> -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <title>Historical Exchange Rate Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
+    <svg id="currency_map" width="400" height="300"></svg>
+    
+    <!-- <canvas id="myChart" width="400" height="200"></canvas>
 
+  
+    <script src="/Budget_JSP/src/scripts/chart_test.js"></script> -->
+    <!-- <canvas id="historicalDataLimitsChart" width="800" height="400"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const apiUrl = 'https://api.currencyfreaks.com/v2.0/historical-data-limits';
+
+            try {
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const categories = Object.keys(data);
+                const values = Object.values(data);
+
+                const ctx = document.getElementById('historicalDataLimitsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: categories,
+                        datasets: [
+                            {
+                                label: 'Historical Data Limits',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1,
+                                data: values,
+                            },
+                        ],
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                        },
+                    },
+                });
+
+            } catch (error) {
+                console.error("Error fetching data:", error.message);
+            }
+        });
+    </script> -->
     <!-- <div id="main"></div> -->
-    <div id="globe"></div>
+    <!-- <div id="globe"></div> -->
 
 
   <!-- <form id="budgetForm">
