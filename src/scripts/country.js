@@ -1,8 +1,10 @@
-class Country {
-    constructor(name, currency) {
-        this.name = name
-        this.currency = currency
-        
+export class Country {
+    constructor(feature) {
+      this.feature = feature;
+      this.name = this.feature.properties.name;
     }
- 
-}
+  
+    logCountryName() {
+      console.log(this.feature.properties.name);
+    }
+  }
