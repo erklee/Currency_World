@@ -1,1 +1,27 @@
-@import "./styles/test.scss"
+@import "./styles/test.scss";
+@import "./styles/res.scss";
+
+canvas {
+    width: 400px; /* Set your desired width */
+    height: 200px; /* Set your desired height */
+    // border: purple;
+}
+
+#chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    height: 500px;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+#currency_exchange_rate_chart {
+    border: 2px;
+    width: 50px;
+    height: 50px;
+
+}
+
+
