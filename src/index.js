@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         let newCurrency = currencyHash[country.name];
         let dates = ["2023-06-01","2023-07-01","2023-08-01","2023-09-01","2023-10-01","2023-11-01"];
+        
 
         try {
             let data = await Promise.all(dates.map(async date => {
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return result;
             }));
 
-            console.log("Data before Chart:", data);
+            // console.log("data before chart:", data);
 
             const chartCanvas = document.getElementById('currency_exchange_rate_chart');
             let existingChart = null;
@@ -86,13 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: {
                 labels: dates, //labels for your x and y axes
                 datasets: [{
-                    label: 'My First Dataset', //title of graph
+                    label: "Historical Currency Exchange Rate", //title of graph
                     data: data,
                     fill: false,
                     borderColor: "rgb(75, 192, 192)",
                     tension: 0.1
                 }],
                 }
+                
             }
             );
         } catch (error) {

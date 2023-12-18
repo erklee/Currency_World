@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,SACI,wBACA,a","sources":["webpack://project_setup/./src/styles/test.scss"],"sourcesContent":["#main h1{\n    border: 1px solid purple;\n    color: purple;\n}"],"names":[],"sourceRoot":""}
