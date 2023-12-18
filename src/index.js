@@ -12,84 +12,97 @@ import { drawMap } from './scripts/map';
 import { createTooltip, showTooltip, hideTooltip } from './scripts/tooltip';
 import { Country } from './scripts/country';
 import { fetchExchangeRate } from './scripts/currencyapi';
-import * as chartJS from "chart.js";
+// import * as chartJS from "chart.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-  const svg = d3.select('svg');
-  const width = +svg.attr('width');
-  const height = +svg.attr('height');
-  const tooltip = createTooltip();
-
-  const projection = d3.geoMercator().scale(70).center([0, 50]).translate([width / 2, height / 2]);
-
-  d3.json('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson').then(function (data) {
+    const svg = d3.select('svg');
+    const width = +svg.attr('width');
+    const height = +svg.attr('height');
+    const tooltip = createTooltip();
+  
+    const projection = d3.geoMercator().scale(70).center([0, 50]).translate([width / 2, height / 2]);
+  
+    d3.json('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson').then(async function (data) {
     drawMap(svg, data, projection, tooltip);
 
-    data.features.forEach(function (feature) {
-      // Create a Country instance for each feature
-      const country = new Country(feature);
+    data.features.forEach(async function (feature) {
+    const country = new Country(feature);
 
-      // Log the name of each country using the Country class method
-      country.logCountryName();
-
-      const countryPath = svg
+    const countryPath = svg
         .append('path')
         .datum(feature)
         .attr('fill', '#69b3a2')
         .attr('d', d3.geoPath().projection(projection))
         .style('stroke', '#fff');
 
-      countryPath
+    countryPath
         .on('mouseover', function (event, d) {
-          d3.select(this).attr('fill', 'orange');
-          showTooltip(tooltip, event, feature.properties.name);
+        d3.select(this).attr('fill', 'orange');
+        showTooltip(tooltip, event, feature.properties.name);
         })
         .on('mouseout', function (d) {
-          d3.select(this).attr('fill', '#69b3a2');
-          hideTooltip(tooltip);
+        d3.select(this).attr('fill', '#69b3a2');
+        hideTooltip(tooltip);
         })
         .on('click', async function(event){
-            let country = new Country(feature);
-            let oldCurrency = "USD";
-            let currencyHash = {
-                "USA" : "USD",
-                "South Korea" : "KRW",
-                "Canada" : "CAD",
-                "China" : "CNY",
-                "Brazil" : "BRL",
-        
-              };
-            let newCurrency = currencyHash[country.name];
-            let dates = ["2023-06-01","2023-07-01","2023-08-01","2023-09-01","2023-10-01","2023-11-01"];
-            let data = [];
-            dates.forEach( date => {
-                setTimeout(() => {
-                    let result = fetchExchangeRate(newCurrency, date);
-                    data.push(result);
-                }, 200); 
-                console.log(data)
-            });
-            new Chart(
-                document.getElementById("currency_exchange_rate_chart"),
-                {
-                    type: 'line',
-                    data: {
-                        labels: dates, // labels for your x and y axes
-                        datasets: [{
-                            label: 'My First Dataset', // title of graph
-                            data: data, // currency exchange rates
-                            fill: false,
-                            borderColor: "rgb(75, 192, 192)",
-                            tension: 0.1
-                        }],
+        let country = new Country(feature);
+        let oldCurrency = "USD";
+        let currencyHash = {
+            "USA" : "USD",
+            "South Korea" : "KRW",
+            "Canada" : "CAD",
+            "China" : "CNY",
+            "Brazil" : "BRL",
+        };
+        let newCurrency = currencyHash[country.name];
+        let dates = ["2023-06-01","2023-07-01","2023-08-01","2023-09-01","2023-10-01","2023-11-01"];
 
-                    }
+        try {
+            let data = await Promise.all(dates.map(async date => {
+            let result = await fetchExchangeRate(newCurrency, date);
+            return result;
+            }));
+
+            console.log("Data before Chart:", data);
+
+            const chartCanvas = document.getElementById('currency_exchange_rate_chart');
+            let existingChart = null;
+
+            // check if chart instance exists
+            if (chartCanvas) {
+                const ctx = chartCanvas.getContext('2d');
+                existingChart = Chart.getChart(ctx);
+                
+                // destroy if chart is there
+                if (existingChart) {
+                existingChart.destroy();
                 }
+            }
+
+            new Chart(
+            document.getElementById("currency_exchange_rate_chart"),
+            {
+                type: 'line',
+                data: {
+                labels: dates, //labels for your x and y axes
+                datasets: [{
+                    label: 'My First Dataset', //title of graph
+                    data: data,
+                    fill: false,
+                    borderColor: "rgb(75, 192, 192)",
+                    tension: 0.1
+                }],
+                }
+            }
             );
+        } catch (error) {
+            console.error("Error fetching exchange rate data:", error.message);
+        }
         });
     });
-  });
 });
+});
+  
 
 
 
