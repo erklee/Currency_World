@@ -5,7 +5,7 @@ export function drawMap(svg, data) {
   const height = +svg.attr('height');
 
   const projection = d3.geoMercator()
-    .scale(70)
+    .scale(130)
     .center([0, 50])
     .translate([width / 2, height / 2]);
 
@@ -15,5 +15,8 @@ export function drawMap(svg, data) {
     .enter().append('path')
     .attr('fill', '#69b3a2')
     .attr('d', d3.geoPath().projection(projection))
-    .style('stroke', '#fff');
+    .style('stroke', '#fff')
+    
+ 
 }
+// /drawing general map

@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
 export function createTooltip() {
-  return d3.select('body').append('div')
+  return d3.select('#top-middle').append('div')
     .attr('class', 'tooltip')
     .style('opacity', 0);
 }

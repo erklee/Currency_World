@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
-    <!-- <script src="//unpkg.com/globe.gl"></script> -->
+ 
     <script src="./dist/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <title>World Map with D3.js</title> -->
     <link rel="icon" type="image/x-icon" href="./fav_icon/ce.ico">
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script  t>
-    <link rel="stylesheet" href="./dist/reset.css" />  -->
+
     <script src="https://d3js.org/d3.v4.js"></script>
 
     <title>Historical Exchange Rate Chart</title>
@@ -19,100 +17,53 @@
   </head>
 
   <body>
-    <h1>"End Me"</h1>
-    
-    <div>
-        <svg id="currency_map" width="400" height="300"></svg>
-    </div>
+    <h1>end me</h1>
 
-    <div>
-        <canvas id="currency_exchange_rate_chart"/>
-    </div>
-    <!-- <canvas id="currency_exchange_rate_chart" width="110" height="200" style="display: block; box-sizing: border-box; height: 30px; width: 30px;"></canvas> -->
-    
-    <!-- <canvas id="myChart" width="400" height="200"></canvas>
+    <div class="parent">
+        <div id="top-left">
+            top left
+        </div>
+        
+        <div id="top-middle">
+            Currency Exchange Visualization
+        </div>
+        <div id="top-right">
+            top right
+        </div>
 
+        <div id="middle-left">
+            description and instructions
+            </select>
+        </div>
+        <div id="middle">
+            <div class ="currency_map_container">
+                <svg id="currency_map" width="1000" height="600"></svg>
+            </div>
+            <div class ="chart-pos">
+                <canvas id="currency_exchange_rate_chart"/>
+            </div>
+        </div>
+        <div id="middle-right">
+            dropdown + highlighted country
+            <select id="country-dropdown">
+                <option></option>
+            </select>
+        </div>
+        <div id="bottom-left">
+            bottom left
+        </div>
+        <div id="bottom-middle">
+            bottom middle
+            <a href="https://github.com/erklee/Javascript_project"><img id="git" src="./assets/icons8-github-sf-regular-filled/icons8-github-96.png"></a>
+            <img id="linkedin" src="./assets/icons8-linkedin-ios-16-filled/icons8-linkedin-100.png"/>
+        </div>
+        <div id="bottom-right">
+            bottom-right
+        </div>
+    </div>
+    
+    
   
-    <script src="/Budget_JSP/src/scripts/chart_test.js"></script> -->
-    <!-- <canvas id="historicalDataLimitsChart" width="800" height="400"></canvas>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            const apiUrl = 'https://api.currencyfreaks.com/v2.0/historical-data-limits';
-
-            try {
-                const response = await fetch(apiUrl);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                const categories = Object.keys(data);
-                const values = Object.values(data);
-
-                const ctx = document.getElementById('historicalDataLimitsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: categories,
-                        datasets: [
-                            {
-                                label: 'Historical Data Limits',
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                borderWidth: 1,
-                                data: values,
-                            },
-                        ],
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                            },
-                        },
-                    },
-                });
-
-            } catch (error) {
-                console.error("Error fetching data:", error.message);
-            }
-        });
-    </script> -->
-    <!-- <div id="main"></div> -->
-    <!-- <div id="globe"></div> -->
-
-
-  <!-- <form id="budgetForm">
-      <label for="budgetAmount">Enter Your Budget($USD):</label>
-      <input type="number" id="budgetAmount" name="budgetAmount" placeholder="Enter amount" required>
-      <button type="submit">Submit</button>
-  </form>
-
-  <div id="displayBudget"></div>
-  <script>
-  const storedBudget = localStorage.getItem("budgetAmount");
-  if (storedBudget) {
-      document.getElementById("displayBudget").innerText = "Your Budget: $" + storedBudget;
-  }
-
-  document.getElementById("budgetForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-
-      const budgetAmount = document.getElementById("budgetAmount").value;
-
-
-      localStorage.setItem("budgetAmount", budgetAmount);
-
-
-      document.getElementById("displayBudget").innerText = "Your Budget: $" + budgetAmount;
-
-
-  });
-</script> -->
-
 
   </body>
 
