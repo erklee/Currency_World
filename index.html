@@ -8,7 +8,7 @@
  
     <script src="./dist/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="icon" type="image/x-icon" href="./fav_icon/ce.ico">
+    <link rel="icon" type="image/x-icon" href="./fav_icon/icons8-currency-exchange-48.png">
 
     <script src="https://d3js.org/d3.v4.js"></script>
 
@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <h1>end me</h1>
+    <!-- <h1>end me</h1> -->
 
     <div class="parent">
         <div id="top-left">
@@ -32,19 +32,58 @@
         </div>
 
         <div id="middle-left">
-            description and instructions
-            </select>
+            <ol>
+                <li>Select a Country:
+                    <ul>
+                        <li>Use the dropdown menu labeled "Country" to select a country for which you want to view historical currency exchange rates.</li>
+                    </ul>
+                </li>
+            
+                <li>View Map:
+                    <ul>
+                        <li>The world map is displayed in the middle of the page, with each country represented by a shaded area. The selected country is highlighted in a different color for easy identification.</li>
+                    </ul>
+                </li>
+            
+                <li>View Chart:
+                    <ul>
+                        <li>Below the map, there is a line chart labeled "Historical Currency Exchange Rate." This chart displays the historical exchange rates for the selected country's currency against USD over a predefined set of dates.</li>
+                    </ul>
+                </li>
+            
+                <li>Interact with the Map:
+                    <ul>
+                        <li>Hover over a country on the map to see a tooltip with the country's name.</li>
+                        <li>Click on a country to update the chart with the historical exchange rates for that country.</li>
+                    </ul>
+                </li>
+            
+                <li>Chart Details:
+                    <ul>
+                        <li>The chart provides information on the exchange rate trends over the last twelve months. The x-axis represents the dates, and the y-axis represents the exchange rates against USD.</li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <ul>
+                        <a href="https://github.com/erklee/Javascript_project"><img id="git" src="./assets/icons8-github-sf-regular-filled/icons8-github-64_2C401E.png"></a>
+                        <img id="linkedin" src="./assets/icons8-linkedin-ios-16-filled/icons8-linkedin-64_2C401E.png"/>
+                    </ul>
+                </li>
+            </ol>
+            
         </div>
         <div id="middle">
             <div class ="currency_map_container">
-                <svg id="currency_map" width="1000" height="600"></svg>
+                <svg id="currency_map" width="800" height="500"></svg>
             </div>
             <div class ="chart-pos">
                 <canvas id="currency_exchange_rate_chart"/>
             </div>
         </div>
         <div id="middle-right">
-            dropdown + highlighted country
+            Country
             <select id="country-dropdown">
                 <option></option>
             </select>
@@ -53,9 +92,8 @@
             bottom left
         </div>
         <div id="bottom-middle">
-            bottom middle
-            <a href="https://github.com/erklee/Javascript_project"><img id="git" src="./assets/icons8-github-sf-regular-filled/icons8-github-96.png"></a>
-            <img id="linkedin" src="./assets/icons8-linkedin-ios-16-filled/icons8-linkedin-100.png"/>
+            <!-- bottom middle -->
+
         </div>
         <div id="bottom-right">
             bottom-right

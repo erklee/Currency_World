@@ -5,8 +5,8 @@ export function drawMap(svg, data) {
   const height = +svg.attr('height');
 
   const projection = d3.geoMercator()
-    .scale(130)
-    .center([0, 50])
+    .scale(115)
+    .center([0, 40])
     .translate([width / 2, height / 2]);
 
   svg.append('g')

@@ -18,6 +18,6 @@ export function showTooltip(tooltip, event, content) {
 
 export function hideTooltip(tooltip) {
   tooltip.transition()
-    .duration(500)
+    .duration(5000)
     .style('opacity', 0);
 }

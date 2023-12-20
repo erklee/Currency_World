@@ -5,6 +5,7 @@ import { createTooltip, showTooltip, hideTooltip } from './scripts/tooltip';
 import { Country } from './scripts/country';
 import { fetchExchangeRate } from './scripts/currencyapi';
 import currencyHash from "./scripts/currencyhash";
+import { fetchCurrentExchangeRate } from './scripts/current_currency_api';
 // import * as chartJS from "chart.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dates = ["2023-01-01","2023-02-01","2023-03-01","2023-04-01","2023-05-01","2023-06-01","2023-07-01","2023-08-01","2023-09-01","2023-10-01","2023-11-01","2023-12-01"];
   
-    const projection = d3.geoMercator().scale(130).center([0, 50]).translate([width / 2, height / 2]);
+    const projection = d3.geoMercator().scale(115).center([0, 40]).translate([width / 2, height / 2]);
 
     const dropdown = document.getElementById("country-dropdown");
 
     Object.keys(currencyHash).forEach((country) => {
-        var option = document.createElement('option');
+        const option = document.createElement('option');
         option.value = country;
         option.innerHTML = country;
         dropdown.appendChild(option);
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         selectedCountryPath = d3.select(`path.${country}`);
         // console.log(selectedCountryPath)
-        selectedCountryPath.attr('fill', '#898C78');
+        selectedCountryPath.attr('fill', '#b3697a');
         
         let currency = currencyHash[country];
         try {
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: `Historical Currency Exchange Rate - ${currency}`, //title of graph
                     data: data,
                     fill: false,
-                    borderColor: "rgb(44,64,30)",
+                    borderColor: "rgb(179, 105, 122)",
                     tension: 0.1
                     //maintain aspect ration options
                 }],
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .datum(feature)
         .attr('fill', '#69b3a2')
         .attr('d', d3.geoPath().projection(projection))
-        .style('stroke', '#fff')
+        .style('stroke', '#d3d3d3')
         .attr('class', (d) =>  d.properties.name);
 
     countryPath
@@ -146,15 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // if (selectedCountryPath) {
         //     selectedCountryPath.attr('fill', 'orange');
         // }
-        d3.select(this).attr('fill', '#898C78');
+        d3.select(this).attr('fill', '#b3697a');
         showTooltip(tooltip, event, feature.properties.name);
         })
     .on('mouseout', function (d) {
         d3.select(this).attr('fill', '#69b3a2');
         if(selectedCountryPath){
-            selectedCountryPath.attr('fill', '#898C78');
+            selectedCountryPath.attr('fill', '#b3697a');
         }
-        // hideTooltip(tooltip);
+        hideTooltip(tooltip);
         })
     .on('click', async function(event){
         let newCountryPath = d3.select(this);
@@ -169,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             //     selectedCountryPath.attr('fill', 'orange');
             // }
         }
-        newCountryPath.attr('fill', '#898C78');
+        newCountryPath.attr('fill', '#b3697a');
         selectedCountryPath = newCountryPath;
         // console.log('new country', selectedCountryPath.datum().properties.name);
         let country = new Country(feature);
@@ -214,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: `Historical Currency Exchange Rate - ${newCurrency}`, //title of graph
                     data: data,
                     fill: false,
-                    borderColor: "rgb(44,64,30)",
+                    borderColor: "rgb(	179, 105, 122)",
                     tension: 0.1
                     //maintain aspect ration options
                 }],
