@@ -5,7 +5,7 @@ import { createTooltip, showTooltip, hideTooltip } from './scripts/tooltip';
 import { Country } from './scripts/country';
 import { fetchExchangeRate } from './scripts/currencyapi';
 import currencyHash from "./scripts/currencyhash";
-import { fetchCurrentExchangeRate } from './scripts/current_currency_api';
+// import { fetchCurrentExchangeRate } from './scripts/current_currency_api';
 // import * as chartJS from "chart.js";
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         selectedCountryPath = d3.select(`path.${country}`);
-        // console.log(selectedCountryPath)
+
         selectedCountryPath.attr('fill', '#b3697a');
         
         let currency = currencyHash[country];

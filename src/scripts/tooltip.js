@@ -6,10 +6,11 @@ export function createTooltip() {
     .style('opacity', 0);
 }
 
-export function showTooltip(tooltip, event, content) {
+export function showTooltip(tooltip, event, content, exchangeRate) {
   tooltip.transition()
     .duration(200)
     .style('opacity', 0.9);
+
 
   tooltip.html(content)
     .style('left', (event.pageX) + 'px')

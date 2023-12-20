@@ -72,7 +72,7 @@ body {
   grid-row-gap: 0px;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .centered-content {
@@ -106,15 +106,14 @@ body {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 950px;
 }
 
 #middle-left {
   box-shadow: 0px 15px 6px rgba(0, 0, 0, 0.2);
   background-color: #8AA676;
-  font-size: large;
+  font-size: medium;
   border: 2px solid;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
 }
 
@@ -151,7 +150,7 @@ p {
   border: 2px solid;
   font-size: large;
   border: 2px solid;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
 }
 
@@ -165,7 +164,6 @@ p {
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  max-width: 900px;
 }
 
 .chart-pos {
