@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dropdown = document.getElementById("country-dropdown");
 
+        
+    
+
     Object.keys(currencyHash).forEach((country) => {
         const option = document.createElement('option');
         option.value = country;
@@ -144,9 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     countryPath
     .on('mouseover', function (event, d) {
-        // if (selectedCountryPath) {
-        //     selectedCountryPath.attr('fill', 'orange');
-        // }
+
         d3.select(this).attr('fill', '#b3697a');
         showTooltip(tooltip, event, feature.properties.name);
         })
@@ -159,20 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     .on('click', async function(event){
         let newCountryPath = d3.select(this);
-        console.log(this)
-        // console.log('clicked country:', feature.properties.name);
+    
+
         if (selectedCountryPath) {
-            // console.log('previous:', selectedCountryPath.datum().properties.name); 
             selectedCountryPath.attr('fill', '#69b3a2');
-            // if (newCountryPath === selectedCountryPath){
-            //     selectedCountryPath.attr('fill', '#69b3a2');
-            // } else { 
-            //     selectedCountryPath.attr('fill', 'orange');
-            // }
+
         }
         newCountryPath.attr('fill', '#b3697a');
         selectedCountryPath = newCountryPath;
-        // console.log('new country', selectedCountryPath.datum().properties.name);
         let country = new Country(feature);
         let oldCurrency = "USD";
     
@@ -185,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return result;
             }));
 
-            // console.log("data before chart:", data);
+
             
             const chartCanvas = document.getElementById('currency_exchange_rate_chart');
             let existingChart = null;

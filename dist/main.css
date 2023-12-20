@@ -99,6 +99,7 @@ body {
   grid-row: 1;
   font-size: 36px;
   text-align: center;
+  margin-top: 40px;
 }
 
 #middle {
@@ -116,18 +117,15 @@ body {
   padding: 5px;
   align-items: center;
 }
-
-ol {
+#middle-left ol {
   padding-left: 20px;
 }
-
-ul {
+#middle-left ul {
   list-style-type: disc;
   margin-bottom: 10px;
 }
-
-p {
-  font-size: 1.2em;
+#middle-left p {
+  font-size: 1em;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -148,10 +146,21 @@ p {
   box-shadow: 0px 15px 6px rgba(0, 0, 0, 0.2);
   background-color: #8AA676;
   border: 2px solid;
-  font-size: large;
+  font-size: medium;
   border: 2px solid;
   padding: 5px;
   align-items: center;
+  max-height: 800px;
+}
+#middle-right h2 {
+  padding-left: 10px;
+}
+#middle-right ol {
+  padding-left: 20px;
+}
+#middle-right ul {
+  list-style-type: disc;
+  margin-bottom: 10px;
 }
 
 .currency_map_container {

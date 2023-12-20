@@ -61,7 +61,8 @@ body {
     grid-column: 2;
     grid-row: 1;
     font-size: 36px;
-    text-align: center;   
+    text-align: center; 
+    margin-top: 40px;  
 }
 
 #middle{
@@ -81,22 +82,24 @@ body {
     border: 2px solid;
     padding: 5px;
     align-items: center;
+    // max-height: 800px;
 
-}
-ol {
-    padding-left: 20px;
+    ol {
+        padding-left: 20px;
+    }
+    
+    ul {
+        list-style-type: disc;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 }
 
-ul {
-    list-style-type: disc;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
 #git,
 #linkedin {
 
@@ -116,10 +119,25 @@ p {
     box-shadow: 0px 15px 6px rgba($color: #000000, $alpha: 0.2);
     background-color: #8AA676;
     border: 2px solid;
-    font-size: large;
+    font-size: medium;
     border: 2px solid;
     padding: 5px;
     align-items: center;
+    max-height: 800px;
+
+    h2 {
+        padding-left: 10px;
+    }
+    ol {
+        padding-left: 20px;
+    }
+    
+    ul {
+        list-style-type: disc;
+        margin-bottom: 10px;
+    }
+    
+
 }
 
 .currency_map_container{
@@ -139,5 +157,3 @@ p {
     padding: 1rem 2rem 1rem 2rem;
     
 }
-
-
