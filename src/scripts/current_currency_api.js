@@ -1,7 +1,6 @@
 export async function fetchCurrentExchangeRate(countryCode, date) {
     const apiKey = "5o9Rnl7tRSWposKoP7WAr4hJsHjNEYC5"; 
     const apiUrl = `https://api.currencybeacon.com/v1/latest?api_key=${apiKey}&base=USD&date=${date}&symbols=${countryCode}`;
-    // console.log(apiUrl);
     try {
     const response = await fetch(apiUrl);
 
