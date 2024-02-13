@@ -3,7 +3,7 @@
 
 ## Description
 This is a web application that displays the historical currency exchange rate of a selected country compared to the U.S dollar.
-[Live Demo](https://erklee.github.io/Javascript_project/)
+[Live Demo](https://erklee.github.io/Currency_World/)
 
 ## Features
 
@@ -65,6 +65,7 @@ There is asynchronous fetching of exchange rate date which ensures data is fetch
 ```
 
 When the mouse hovers over the country of the map the country will be highlited and will also display a tooltip with additional information about the country. The mouseout event will revert the color back to the default color as well as hiding the tooltip. On the click event i.e when a coutry is clicked it will update the selected country and changing the fill colors as well as execute other logic related to the event.
+![Alt text](./assets/images/fsp.gif)
 ```javascript
 countryPath
     .on('mouseover', function (event, d) {
