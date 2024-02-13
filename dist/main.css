@@ -154,6 +154,8 @@ body {
 }
 #middle-right h2 {
   padding-left: 10px;
+  display: flex;
+  align-items: center;
 }
 #middle-right ol {
   padding-left: 20px;
@@ -177,4 +179,16 @@ body {
 
 .chart-pos {
   padding: 1rem 2rem 1rem 2rem;
+}
+
+#middle-left, #middle-right {
+  box-shadow: 0px 15px 6px rgba(0, 0, 0, 0.2);
+  background-color: #8AA676;
+  border: 2px solid;
+  font-size: medium;
+  padding: 5px;
+  align-items: center;
+  width: 300px; 
+  height: 920px; 
+  overflow: auto; 
 }
