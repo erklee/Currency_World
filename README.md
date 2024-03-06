@@ -2,7 +2,7 @@
 
 
 ## Description
-This is a web application that displays the historical currency exchange rate of a selected country compared to the U.S dollar.
+This is a web application that displays the historical currency exchange rate of a selected country compared to the U.S dollar. This was done in using vanilla JavaScript and DOM manipulation.
 [Live Demo](https://erklee.github.io/Currency_World/)
 
 ## Features
